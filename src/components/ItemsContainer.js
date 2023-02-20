@@ -10,7 +10,7 @@ const ItemsContainer = (props) => {
     <Fragment>
       <Container className="text-center mx-auto">
         <Row xs={1} md={2}>
-            {props.data.map(item=> <Col>
+            {props.data.map(item=> <Col key={item.id}>
             <Item item={item} />
           </Col>)}
         </Row>

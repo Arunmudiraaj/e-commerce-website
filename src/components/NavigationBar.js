@@ -3,7 +3,7 @@ import { Badge, Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-const NavigationBar = () => {
+const NavigationBar = (props) => {
   return (
     <div>
       <Navbar bg="dark" variant="dark">
@@ -13,7 +13,7 @@ const NavigationBar = () => {
             <Nav.Link href="#features">Features</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
-          <Button variant="dark">cart <Badge className="ms-1">0</Badge> </Button>
+          <Button onClick={()=>{props.cartToggle()}} variant="dark">cart <Badge className="ms-1">0</Badge> </Button>
         </Container>
       </Navbar>
     </div>
