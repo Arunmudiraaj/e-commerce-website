@@ -1,11 +1,12 @@
 import React from "react";
 import NavigationBar from "./components/NavigationBar";
-import ItemsContainer from "./components/ItemsContainer";
+import ItemsContainer from "./components/Catalogue/ItemsContainer";
 import "./App.css";
 import { Button } from "react-bootstrap";
 import FooterElement from "./components/Footer/FooterElement";
-import Cart from "./components/Cart";
+import Cart from "./components/Cart/Cart";
 import { useState } from "react";
+import CartProvider from "./store/CartProvider";
 const productsArr = [
   { id : 1,
     title: "Colors",
@@ -59,11 +60,12 @@ function App() {
   }
 
   return ( 
+    <CartProvider>
     <div>
       <NavigationBar cartToggle={cartOpenHandler}/>
       {cartOpen&& <Cart cartToggle={cartOpenHandler}/>}
       <h1
-        className="container bg-gray text-center my-2"
+        className="container bg-gray text-center pt-4 mt-5 my-2"
         style={{ "font-size": "3.5rem" }}
       >
         The Generics
@@ -89,11 +91,12 @@ function App() {
       </section>
 
       <div className="text-center m-4">
-        <Button>See The Cart</Button>
+        <Button variant="warning" onClick={cartOpenHandler}>See The Cart</Button>
       </div>
 
       <FooterElement/>
     </div>
+    </CartProvider>
   );
 }
 
