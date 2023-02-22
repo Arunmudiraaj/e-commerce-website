@@ -7,6 +7,9 @@ import FooterElement from "./components/Footer/FooterElement";
 import Cart from "./components/Cart/Cart";
 import { useState } from "react";
 import CartProvider from "./store/CartProvider";
+
+
+
 const productsArr = [
   { id : 1,
     title: "Colors",
@@ -60,6 +63,7 @@ function App() {
   }
 
   return ( 
+  
     <CartProvider>
     <div>
       <NavigationBar cartToggle={cartOpenHandler}/>
@@ -97,6 +101,7 @@ function App() {
       <FooterElement/>
     </div>
     </CartProvider>
+ 
   );
 }
 
