@@ -9,9 +9,9 @@ export default function About(){
          <Navbar style={{'zIndex': '1'}} fixed="top" bg="dark" variant="dark">
         <Container className="">
           <Nav className="mx-auto">
-            <Nav.Link > <NavLink className={({isActive})=>isActive? 'bg-black px-2 py-1 rounded-3':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/'} end>Home</NavLink> </Nav.Link>
-            <Nav.Link ><NavLink className={({isActive})=>isActive? 'bg-black px-2 py-1 rounded-3':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/store'} end>Store</NavLink></Nav.Link>
-            <Nav.Link ><NavLink className={({isActive})=>isActive? 'bg-black px-2 py-1 rounded-3':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/about'} end>About</NavLink></Nav.Link>
+            <Nav.Link > <NavLink className={({isActive})=>isActive? 'text-warning':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/'} end>Home</NavLink> </Nav.Link>
+            <Nav.Link ><NavLink className={({isActive})=>isActive? 'text-warning':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/store'} end>Store</NavLink></Nav.Link>
+            <Nav.Link ><NavLink className={({isActive})=>isActive? 'text-warning':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/about'} end>About</NavLink></Nav.Link>
           </Nav>
         </Container>
       </Navbar>
