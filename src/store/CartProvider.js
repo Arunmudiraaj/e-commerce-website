@@ -10,7 +10,7 @@ const defaultCartContext = {
 const cartReducer = (state, action) => {
  
   if (action.type === "ADD") {
-    
+   
     const alreadyPresentIndex = state.items.findIndex(
       (item) => item.id === action.item.id
     );
@@ -45,7 +45,7 @@ const CartProvider = (props) => {
     defaultCartContext
   );
   const addItemHandler = (item) => {
-   
+  
     dispatchCartAction({ type: "ADD", item: item });
   };
   const removeItemHandler = (id) => {

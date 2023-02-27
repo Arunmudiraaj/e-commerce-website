@@ -1,6 +1,9 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Container } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { useRef } from 'react';
 
 const InputForm = (props) => {
@@ -19,7 +22,9 @@ const InputForm = (props) => {
     }
   return (
     <div>
-        <Form>
+        <Container>
+          <Row>
+            <Col className='mx-auto' xs={12} md={8} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control ref={enteredEmail} type="email" placeholder="Enter email" />
@@ -37,7 +42,9 @@ const InputForm = (props) => {
       <Button onClick={userSubmitted} variant="primary" type="submit">
         Submit
       </Button>
-    </Form>
+      </Col>
+      </Row>
+    </Container>
     </div>
   )
 }

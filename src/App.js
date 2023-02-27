@@ -10,7 +10,7 @@ import CartProvider from "./store/CartProvider";
 
 
 
-const productsArr = [
+export const productsArr = [
   { id : 1,
     title: "Colors",
     price: 100,
@@ -36,7 +36,7 @@ const productsArr = [
   },
 ];
 
-const merchArr = [
+export const merchArr = [
   {
     id : 5,
     title: "Black and white Colors",
