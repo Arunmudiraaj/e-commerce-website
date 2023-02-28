@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Item = (props) => {
   const cart = useContext(CartContext)
-  const addToCart = ()=>{
+   const addToCart = ()=>{
     const item = { id : props.item.id,
       title: props.item.title,
       price: props.item.price,

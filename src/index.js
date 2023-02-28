@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import SignUp from './pages/SignUp';
 
 import '../node_modules/react-bootstrap/dist/react-bootstrap'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
@@ -16,7 +16,8 @@ const router = createBrowserRouter([
   {path: '/', element: <Home/>},
   {path: '/about', element: <About/>},
   {path: '/store', element: <App/>},
-  {path: '/store/:productId' , element: <ProductDetails/>}
+  {path: '/store/:productId' , element: <ProductDetails/>},
+  {path: '/signup', element: <SignUp/>}
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

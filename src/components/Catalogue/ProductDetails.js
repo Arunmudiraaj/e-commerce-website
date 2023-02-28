@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import { productsArr } from "../../App";
 import { merchArr } from "../../App";
 import { Table } from "react-bootstrap";
-import { useContext } from "react";
-import CartContext from "../../store/CartContext";
+// import { useContext } from "react";
+// import CartContext from "../../store/CartContext";
 
 
 const ProductDetails = () => {
@@ -14,18 +14,18 @@ const ProductDetails = () => {
   const product = allProducts.find((element) => element.id === id);
   const discount = Math.floor(Math.random() * (90 - 10)) + 10;
 
-  const cart = useContext(CartContext)
-  const addToCart = ()=>{
+  // const cart = useContext(CartContext)
+  // const addToCart = ()=>{
     
-    const item = { id : product.id,
-      title: product.title,
-      price: product.price,
-      quantity: 1,
-      imageUrl: product.imageUrl
-    }
-    cart.addItem(item)
+  //   const item = { id : product.id,
+  //     title: product.title,
+  //     price: product.price,
+  //     quantity: 1,
+  //     imageUrl: product.imageUrl
+  //   }
+  //   cart.addItem(item)
    
-  }
+  // }
 
   return (
     <>
