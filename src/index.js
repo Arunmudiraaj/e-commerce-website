@@ -13,12 +13,14 @@ import Home from './pages/Home';
 import About from './pages/About';
 import CartProvider from './store/CartProvider';
 import ProductDetails from './components/Catalogue/ProductDetails';
+import Profile from './pages/Profile';
 const router = createBrowserRouter([
   {path: '/', element: <Home/>},
   {path: '/about', element: <About/>},
   {path: '/store', element: <App/>},
   {path: '/store/:productId' , element: <ProductDetails/>},
-  {path: '/signup', element: <SignUp/>}
+  {path: '/signup', element: <SignUp/>},
+  {path: '/profile', element: <Profile/>}
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

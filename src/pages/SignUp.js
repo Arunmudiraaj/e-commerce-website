@@ -9,6 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartContext from "../store/CartContext";
+import { useNavigate } from "react-router-dom";
 export default function SignUp() {
   const cart = useContext(CartContext)
   const [create, setCreate] = useState(true)
@@ -16,6 +17,7 @@ export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
   
   const createToggleHandler = ()=>{
     setCreate(pre=>!pre)
@@ -68,6 +70,8 @@ export default function SignUp() {
       console.log(cart)
       setIsLoggedIn(true)
       cart.updateToken(res.data.idToken)
+      navigate('/profile')
+
     })
     .catch(err=>{
       alert(err.response.data.error.message)
