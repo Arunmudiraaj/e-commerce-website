@@ -6,7 +6,6 @@ import { Button } from "react-bootstrap";
 import FooterElement from "./components/Footer/FooterElement";
 import Cart from "./components/Cart/Cart";
 import { useState } from "react";
-import CartProvider from "./store/CartProvider";
 
 
 
@@ -64,7 +63,7 @@ function App() {
 
   return ( 
   
-    <CartProvider>
+
     <div>
       <NavigationBar cartToggle={cartOpenHandler}/>
       {cartOpen&& <Cart cartToggle={cartOpenHandler}/>}
@@ -100,7 +99,7 @@ function App() {
 
       <FooterElement/>
     </div>
-    </CartProvider>
+  
  
   );
 }

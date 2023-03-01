@@ -11,6 +11,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { RouterProvider } from "react-router-dom";
 import Home from './pages/Home';
 import About from './pages/About';
+import CartProvider from './store/CartProvider';
 import ProductDetails from './components/Catalogue/ProductDetails';
 const router = createBrowserRouter([
   {path: '/', element: <Home/>},
@@ -22,9 +23,12 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <CartProvider>
     <RouterProvider router={router}>
           <App />
     </RouterProvider>
+
+    </CartProvider>
   
 );
 

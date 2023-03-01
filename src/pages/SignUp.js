@@ -4,15 +4,28 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import { useState, useRef } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import CartContext from "../store/CartContext";
 export default function SignUp() {
+  const cart = useContext(CartContext)
   const [create, setCreate] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const emailRef = useRef();
   const passwordRef = useRef();
   const [loading, setLoading] = useState(false);
+  
   const createToggleHandler = ()=>{
     setCreate(pre=>!pre)
   }
+  const logoutHandler = ()=>{
+    setIsLoggedIn(false)
+    cart.removeToken()
+  }
   const createAccHandler = () => {
+
     if (create){
 
    
@@ -52,7 +65,9 @@ export default function SignUp() {
     }
     )
     .then(res=>{
-      console.log(res)
+      console.log(cart)
+      setIsLoggedIn(true)
+      cart.updateToken(res.data.idToken)
     })
     .catch(err=>{
       alert(err.response.data.error.message)
@@ -60,6 +75,17 @@ export default function SignUp() {
   }
   };
   return (
+    <div>
+      <Navbar bg="primary" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">E-Commerce</Navbar.Brand>
+          <Nav className="ms-auto">
+          {!isLoggedIn&&<Button href="#pricing">Login</Button>}
+            {isLoggedIn&&<Nav.Link href="#features">Profile</Nav.Link>}
+            {isLoggedIn&&<Button onClick={logoutHandler} href="#pricing">Logout</Button>}
+          </Nav>
+        </Container>
+      </Navbar>
     <Card className="bg-info p-2 mx-auto text-center col-md-6 col-lg-4  mt-5">
       <Card.Header>{create? 'Sign Up':'Log In'}</Card.Header>
       <Card.Body>
@@ -93,5 +119,6 @@ export default function SignUp() {
       {create? 'Login with existing account ':"Don't have an account? Sign up "} <span className="text-danger text-decoration-underline" style={{cursor:"pointer"}} onClick={createToggleHandler}>here</span>
       </Card.Footer>
     </Card>
+    </div>
   );
 }
