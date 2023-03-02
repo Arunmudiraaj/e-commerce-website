@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import CartContext from "./store/CartContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 export const productsArr = [
   { id : 1,
@@ -58,12 +59,22 @@ export const merchArr = [
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false) 
+  const [cartItems, setCartItems]= useState([])
   const cartOpenHandler = ()=>{
     
     setCartOpen(pre=>!pre)
+    const mail = localStorage.getItem('email')
+    const updated = mail.replace('@','')
+    const updatedMailReq = updated.replace('.','')
+    console.log(updatedMailReq)
+    axios.get(`https://crudcrud.com/api/b9fa0fbb40374d8c83f41cf9ba0e83b1/${updatedMailReq}`)
+    .then(res=>{
+      console.log(res.data)
+      setCartItems(res.data)
+    })
   }
   const cart = useContext(CartContext)
-  const isLoggedIn = !!cart.loginId
+  const isLoggedIn = !!localStorage.getItem('token')
   const navigate = useNavigate()
   useEffect(()=>{
     if(!isLoggedIn){
@@ -75,7 +86,7 @@ function App() {
 
     <div>
       <NavigationBar cartToggle={cartOpenHandler}/>
-      {cartOpen&& <Cart cartToggle={cartOpenHandler}/>}
+      {cartOpen&& <Cart items={cartItems} cartToggle={cartOpenHandler}/>}
       <h1
         className="container bg-gray text-center pt-4 mt-5 my-2"
         style={{ "font-size": "3.5rem" }}

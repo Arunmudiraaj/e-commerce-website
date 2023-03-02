@@ -29,6 +29,7 @@ export default function Login() {
     
       cart.updateToken(res.data.idToken)
       localStorage.setItem('token',res.data.idToken)
+      localStorage.setItem('email', emailRef.current.value)
       navigate('/store')
 
     })

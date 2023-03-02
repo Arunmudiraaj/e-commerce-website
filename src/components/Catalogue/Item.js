@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import { useContext } from 'react';
 import CartContext from '../../store/CartContext';
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 const Item = (props) => {
   const cart = useContext(CartContext)
    const addToCart = ()=>{
@@ -15,6 +15,12 @@ const Item = (props) => {
       imageUrl: props.item.imageUrl
     }
     cart.addItem(item)
+    const mail = localStorage.getItem('email')
+    const updated = mail.replace('@','')
+    const updatedMailReq = updated.replace('.','')
+    console.log(updatedMailReq)
+    axios.post(`https://crudcrud.com/api/b9fa0fbb40374d8c83f41cf9ba0e83b1/${updatedMailReq}`, item)
+
   }
   return (
     
