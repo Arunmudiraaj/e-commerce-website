@@ -16,6 +16,7 @@ const NavigationBar = (props) => {
             <Nav.Link > <NavLink className={({isActive})=>isActive? 'text-warning':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/'} end>Home</NavLink> </Nav.Link>
             <Nav.Link ><NavLink className={({isActive})=>isActive? 'text-warning':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/store'} end>Store</NavLink></Nav.Link>
             <Nav.Link ><NavLink className={({isActive})=>isActive? 'text-warning':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/about'} end>About</NavLink></Nav.Link>
+            <Nav.Link ><NavLink className={({isActive})=>isActive? 'text-warning':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/login'} end>Login</NavLink></Nav.Link>
           </Nav>
           <Button className="position-fixed top-10 end-0" onClick={()=>{props.cartToggle()}} variant="dark">cart <Badge className="ms-1">{cart.items.length}</Badge> </Button>
         </Container>

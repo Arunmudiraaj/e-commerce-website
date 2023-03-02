@@ -5,7 +5,7 @@ import { useReducer } from "react";
 const defaultCartContext = {
   items: [],
   totalAmount: 0,
-  loginId : ''
+  loginId : localStorage.getItem('token')
 };
 
 const cartReducer = (state, action) => {

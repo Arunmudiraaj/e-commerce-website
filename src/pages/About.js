@@ -22,6 +22,7 @@ export default function About(){
             <Nav.Link > <NavLink className={({isActive})=>isActive? 'text-warning':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/'} end> Home</NavLink> </Nav.Link>
             <Nav.Link ><NavLink className={({isActive})=>isActive? 'text-warning':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/store'} end>Store</NavLink></Nav.Link>
             <Nav.Link ><NavLink className={({isActive})=>isActive? 'text-warning':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/about'} end>About</NavLink></Nav.Link>
+            <Nav.Link ><NavLink className={({isActive})=>isActive? 'text-warning':undefined} style={{'textDecoration': 'none', 'color': 'white'}} to={'/login'} end>Login</NavLink></Nav.Link>
           </Nav>
         </Container>
       </Navbar>
