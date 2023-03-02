@@ -12,6 +12,7 @@ import ProductDetails from './components/Catalogue/ProductDetails';
 import Login from './pages/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+
 // const router = createBrowserRouter([
 //   {path: '/', element: <Home/>},
 //   {path: '/about', element: <About/>},
@@ -20,6 +21,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //   {path: '/signup', element: <SignUp/>},
 //   {path: '/profile', element: <Profile/>}
 // ])
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,7 +34,7 @@ root.render(
         <Route path='/store' element={<App/>}/>
         <Route path='/store/:productId' element={<ProductDetails/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='*' element={<div>Page not defined</div>}/>
+        <Route path='*' element={<h1>Page not defined</h1>}/>
       </Routes>
     </BrowserRouter>
 

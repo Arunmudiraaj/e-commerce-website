@@ -6,8 +6,10 @@ import { Button } from "react-bootstrap";
 import FooterElement from "./components/Footer/FooterElement";
 import Cart from "./components/Cart/Cart";
 import { useState } from "react";
-
-
+import { useEffect } from "react";
+import CartContext from "./store/CartContext";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const productsArr = [
   { id : 1,
@@ -60,7 +62,14 @@ function App() {
     
     setCartOpen(pre=>!pre)
   }
-
+  const cart = useContext(CartContext)
+  const isLoggedIn = !!cart.loginId
+  const navigate = useNavigate()
+  useEffect(()=>{
+    if(!isLoggedIn){
+      navigate('/login')
+    }
+  })
   return ( 
   
 
